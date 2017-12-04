@@ -79,5 +79,20 @@ model.add(Convolution2D(32, 3, 3, activation='relu', input_shape=(1,28,28),  dim
 # in each convolution kernel, respectively.
 #
 
+
+
+model.add(Convolution2D(32, 3, 3, activation='relu'))
+model.add(MaxPooling2D(pool_size=(2,2)))
+
+
+# http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/
+model.add(Dropout(0.25))
+
+# Dropout is a regularization technique where, while you're updating a layer of your neural net,
+#  you randomly don't update, or "dropout," half of the layer. That is, while updating your neural net layer,
+#  you update each node with probability 1/2,
+#  and leave it unchanged with probability 1/2.
+# This helps prevent the net from relying on one node in the layer too much.
+
 # We can confirm this by printing the shape of the current model output:
-print (model.output_shape)
+print (model.summary())
